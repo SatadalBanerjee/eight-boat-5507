@@ -1,0 +1,26 @@
+
+#top2{
+    display: flex;
+   
+}
+#top2>div{
+    width: 50%;
+  
+    height: 670px;
+}
+
+#top2>div:first-child{
+    background-color: rgb(130, 244, 77);
+}
+
+
+img{
+width: 100%;
+height: 100%;
+}
+h1{
+    font-size: 60px;
+    margin-left: 100px;
+    color: white;
+    margin-top: 200px;
+}

@@ -1,0 +1,16 @@
+#navbar{
+    height:60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: yellow;
+  }
+  a{
+    text-decoration: none;
+    font-size: 30px;
+    color: black;
+    align-items: center;
+  }
+  a:hover{
+    color: blue;
+  }
