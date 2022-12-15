@@ -2,6 +2,7 @@ package com.quick.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,9 +11,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 
-import com.masai.model.Customer;
-import com.masai.model.Driver;
-import com.masai.model.TripStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+//import com.masai.model.Customer;
+//import com.masai.model.Driver;
+//import com.masai.model.TripStatus;
+
 @Entity
 public class tripBooking {
 	
@@ -29,18 +33,17 @@ public class tripBooking {
 	private LocalDate toDate;
 
 	@NotNull
-	private tripStatus status;
+	private boolean status;
 	@NotNull
 	private Double distanceInKm;
 	@NotNull
 	private Double bill;
 
 	@ManyToOne
-
 	private Customer customer;
 
-	@ManyToOne
-
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Driver driver;
 	
 	public  tripBooking()
@@ -49,7 +52,7 @@ public class tripBooking {
 	}
 
 	public tripBooking( String fromLocation, String toLocation, LocalDate fromDate,
-			LocalDate toDate, tripStatus status, Double distanceInKm, Double bill, Customer customer, Driver driver) {
+			LocalDate toDate, boolean status, Double distanceInKm, Double bill, Customer customer, Driver driver) {
 		super();
 		
 		this.fromLocation = fromLocation;
@@ -66,7 +69,7 @@ public class tripBooking {
 	
 
 	public tripBooking(Integer tripbookingId, String fromLocation, String toLocation, LocalDate fromDate,
-			LocalDate toDate, TripStatus status, Double distanceInKm, Double bill, Customer customer, Driver driver) {
+			LocalDate toDate, boolean status, Double distanceInKm, Double bill, Customer customer, Driver driver) {
 		super();
 		this.tripbookingId = tripbookingId;
 		this.fromLocation = fromLocation;
@@ -120,11 +123,11 @@ public class tripBooking {
 		this.toDate = toDate;
 	}
 
-	public tripStatus getStatus() {
+	public boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(tripStatus status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 
