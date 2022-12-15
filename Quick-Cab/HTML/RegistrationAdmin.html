@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/navbar.css"/>
+    <link rel="stylesheet" href="./style/index.css"/>
+    <link rel="stylesheet" href="./style/Admin.css"/>
+    <title>Admin Registration</title>
+</head>
+<body>
+    <div id="navbar">
+        <!--Add navbar divs here-->
+        <!-- Link to bucket.html -->
+        <div><a href="./index.html">Home</a></div>
+        <div><a href="./login.html">Admin</a></div>
+        <div><a href="./signup.html">User</a></div>
+        <div><a href="./signup.html">Driver</a></div>
+        
+      </div>
+      <div id="top2">
+        <div>
+            <h2 style="margin-top: 70px;margin-bottom: -40px;">Admin Registration</h2>
+            <div id="form1">
+               
+                <form id="form">
+                  
+                    <input id="user" type="text" placeholder="Enter UserName" required/>
+                <br/>
+                <input id="password" type="password" placeholder="Enter Password" required/>
+                <br/>
+                <input id="address" type="text" placeholder="Enter Address" required/>
+                <br/>
+                <input id="mobile" type="number" placeholder="Enter Mobile Number" required/>
+                <br/>
+                <input id="email" type="email" placeholder="Enter Email" required/>
+                <br/>
+                
+                <input id="submit" type="submit" value="Register" />
+                </form>
+
+            </div>
+        
+        </div>
+        <div id="img1">
+           
+            <img src="https://shrimathuraji.com/wp-content/uploads/2018/11/headerbanner.jpg"/>
+          </div>
+         
+      </div>
+</body>
+</html>
+<script>
+    var form=document.querySelector("#form");
+    form.addEventListener("submit",AdminReg)
+
+    async function AdminReg(event)
+    {
+        event.preventDefault();
+        var obj={
+            username:form.user.value,
+            password:form.password.value,
+            address:form.address.value,
+            mobile:form.mobile.value,
+            email:form.email.value
+        } 
+        console.log(obj)
+
+        let res=await fetch("http://localhost:8088/admin/register",{
+            method:"POST",
+         
+       mode: 'no-cors',  
+            body:JSON.stringify(obj),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+       
+        let data=await res.json()
+        console.log(data)
+
+    }
+
+
+</script>

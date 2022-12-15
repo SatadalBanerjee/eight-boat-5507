@@ -1,0 +1,28 @@
+#form1{
+    width: 250px;
+ 
+    margin: auto;
+    margin-top: 70px;
+}
+h2{
+   text-align: center;
+   font-size: 40px;
+}
+input{
+    width: 230px;
+    height: 35px;
+   margin-left: 7px;
+    margin-top: 20px;
+   
+}
+#submit{
+    width:100px;
+    background-color: red;
+    border: none;
+    margin-left: 65px;
+    cursor: pointer;
+    color: white;
+}
+#submit:hover{
+    background-color: blue;
+}
