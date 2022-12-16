@@ -1,11 +1,13 @@
 package com.quick.service;
 
+
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.quick.DTO.AdminDTO;
 import com.quick.exceptions.AdminException;
 import com.quick.model.Admin;
+import com.quick.model.TripBooking;
+
 
 public interface AdminService {
 
@@ -24,6 +26,7 @@ public interface AdminService {
 	public List<TripBooking> getTripsDateWise() throws AdminException;
 	
 	public List<TripBooking> getAllTripsForDays(Integer customerId, LocalDateTime fromDate, LocalDateTime toDate)throws AdminException;
+	
 	
 	
 	

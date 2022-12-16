@@ -33,14 +33,14 @@ public class Driver {
 	@NotNull
 	private String licenceNo;
 	
-//	@OneToOne(cascade = CascadeType.ALL)
-//	private Cab cab;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Cab cab;
 	
 	@NotNull
 	private float rating;
 	
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "driver")
-	List<tripBooking> tripList = new ArrayList<>();
+	List<TripBooking> tripList = new ArrayList<>();
 
 }

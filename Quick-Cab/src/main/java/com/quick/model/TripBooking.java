@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 //import com.masai.model.TripStatus;
 
 @Entity
-public class tripBooking {
+public class TripBooking {
 	
 	@Id
 	@SequenceGenerator(name = "trip_generator", sequenceName = "trip_seq", allocationSize = 50)
@@ -46,12 +46,12 @@ public class tripBooking {
 	@JsonIgnore
 	private Driver driver;
 	
-	public  tripBooking()
+	public  TripBooking()
 	{
 		
 	}
 
-	public tripBooking( String fromLocation, String toLocation, LocalDate fromDate,
+	public TripBooking( String fromLocation, String toLocation, LocalDate fromDate,
 			LocalDate toDate, boolean status, Double distanceInKm, Double bill, Customer customer, Driver driver) {
 		super();
 		
@@ -68,7 +68,7 @@ public class tripBooking {
 	
 	
 
-	public tripBooking(Integer tripbookingId, String fromLocation, String toLocation, LocalDate fromDate,
+	public TripBooking(Integer tripbookingId, String fromLocation, String toLocation, LocalDate fromDate,
 			LocalDate toDate, boolean status, Double distanceInKm, Double bill, Customer customer, Driver driver) {
 		super();
 		this.tripbookingId = tripbookingId;

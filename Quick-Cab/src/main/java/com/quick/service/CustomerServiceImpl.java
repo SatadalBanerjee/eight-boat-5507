@@ -24,6 +24,7 @@ public class CustomerServiceImpl implements CustomerService{
 		return saveCustomer;
 	}
 
+	
 	@Override
 	public Customer updateCustomer(Customer customer) throws CustomerException {
 
@@ -67,14 +68,34 @@ public class CustomerServiceImpl implements CustomerService{
 
 	@Override
 	public List<Customer> viewCustomer() throws CustomerException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<Customer> customerList = cdao.getAllCustomersDetails();
+		
+		if(customerList.isEmpty()) {
+			throw new CustomerException("customer not found");
+			
+		}else {
+		
+			return customerList;
+		}
+		
+		
 	}
 
 	@Override
 	public Customer viewCustomer(Integer customerId) throws CustomerException {
-		// TODO Auto-generated method stub
-		return null;
+
+		Optional<Customer> opt = cdao.findById(customerId);
+		
+		if(opt.isPresent()) {
+			
+			Customer viewCustomer = opt.get();
+			return viewCustomer;	
+			
+		}else {
+			throw new CustomerException("coustomer dose not exsit with thsi customer Id "+ customerId);
+		}
+		
 	}
 
 	@Override

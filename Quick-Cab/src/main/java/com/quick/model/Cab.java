@@ -21,7 +21,7 @@ public class Cab {
 	@NotNull
 	private Double perKmRate;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "cab")
 	private Driver driver;
 
 	public Cab(Integer cabid, @NotNull String carType, @NotNull Double perKmRate, Driver driver) {

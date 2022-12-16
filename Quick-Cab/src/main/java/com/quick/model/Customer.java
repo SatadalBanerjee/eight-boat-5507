@@ -27,6 +27,6 @@ public class Customer {
 	private Integer customerId;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-	List<tripBooking> tripList = new ArrayList<>();
+	List<TripBooking> tripList = new ArrayList<>();
 	
 }
