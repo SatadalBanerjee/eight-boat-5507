@@ -3,6 +3,7 @@ package com.quick.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.quick.exceptions.AdminException;
 import com.quick.model.Admin;
@@ -10,6 +11,7 @@ import com.quick.model.UserSession;
 import com.quick.repositories.AdminDao;
 import com.quick.repositories.UserSessionDao;
 
+@Service
 public class SignupAdminServiceImpl implements SignupAdminService{
 
 	@Autowired

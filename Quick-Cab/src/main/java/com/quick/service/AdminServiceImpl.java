@@ -5,12 +5,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.quick.DTO.*;
 import com.quick.exceptions.*;
 import com.quick.model.*;
 import com.quick.repositories.*;
 
+@Service
 public class AdminServiceImpl implements AdminService{
 
 	
