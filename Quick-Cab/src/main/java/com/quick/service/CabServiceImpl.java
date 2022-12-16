@@ -16,13 +16,13 @@ import com.quick.repositories.CabDao;
 public class CabServiceImpl implements CabService{
 
 	 @Autowired
-	 public CabDao  repo;
+	 public CabDao  cabdao;
 	
 	
 	@Override
 	public Cab insertCab(Cab cab) throws CabException {
 		
-		Cab cab2= repo.save(cab);
+		Cab cab2= cabdao.save(cab);
 		
 		return cab2;
 	}
@@ -30,32 +30,32 @@ public class CabServiceImpl implements CabService{
 	@Override
 	public Cab updateCab(Cab cab) throws CabException {
 	    
-		Optional<Cab> optional=repo.findById(cab.getCabid());
+		Optional<Cab> optional=cabdao.findById(cab.getCabid());
 		
 		if(optional.isPresent()) {
 			
-			Cab cab2=repo.save(cab);
+			Cab cab2=cabdao.save(cab);
 			
 			return cab2;
 		}
 		else {
 			
-			throw new  CabException("Cab details not update");
+			throw new  CabException("Cab Details not update");
 		}
 	}
 
 	@Override
 	public Cab deleteCab(Integer cabid) throws CabException {
-		Optional<Cab> opt=repo.findById(cabid) ;
+		Optional<Cab> opt=cabdao.findById(cabid) ;
 		
 		if(opt.isPresent()) {
 			
 			Cab cab=opt.get();
-			repo.delete(opt.get());
+			cabdao.delete(opt.get());
 			return cab;		
 		}
 		else {
-			throw new  CabException("Cab  Not Found With This Cab Id "+cabid);
+			throw new  CabException("Cab Not Found With This Cab Id "+cabid);
 		}
 	
 	}
@@ -63,7 +63,7 @@ public class CabServiceImpl implements CabService{
 	@Override
 	public List<Cab> viewCabOftype(String cartype) throws CabException {
 		
-		List<Cab> cabs=repo.viewCabOftype(cartype);
+		List<Cab> cabs=cabdao.viewCabOftype(cartype);
 		
 		if(cabs.size()==0) {
 			
@@ -79,7 +79,7 @@ public class CabServiceImpl implements CabService{
 	@Override
 	public Integer countCabsofType(String cartype) throws CabException {
 		 
-		List<Cab> cabs=	repo.viewCabOftype(cartype);
+		List<Cab> cabs=	cabdao.viewCabOftype(cartype);
 	       
 		 if(cabs.size()==0) {
 			 throw new  CabException("No Cab Available This Type...");

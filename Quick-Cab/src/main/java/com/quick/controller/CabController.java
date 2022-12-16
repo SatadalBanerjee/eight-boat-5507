@@ -49,7 +49,7 @@ public class CabController {
 		  return new  ResponseEntity<Cab>(cab2,HttpStatus.OK); 
 	 }
 	 
-	 @GetMapping("/Cars/{carType}")
+	 @GetMapping("/Cabs/{cabType}")
 		public ResponseEntity<List<Cab>> viewCabOftype(@PathVariable("carType") String cartype) throws CabException {
 			
 		 List<Cab>  cabs=cabService.viewCabOftype(cartype);
@@ -57,7 +57,7 @@ public class CabController {
 		 
 	 }
 	 
-	 	@GetMapping("/CarsCount/{carType}")
+	 	@GetMapping("/CabsCount/{cabType}")
 		public ResponseEntity<Integer> countCabsofType(@PathVariable("carType")  String cartype) throws CabException {
 	 		Integer count=cabService.countCabsofType(cartype);
 	 		return new ResponseEntity<Integer>(count,HttpStatus.OK);

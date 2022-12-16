@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
+import lombok.Data;
+@Data
 @Entity
 public class Cab {
 
@@ -16,68 +18,17 @@ public class Cab {
 	private Integer cabid;
 
 	@NotNull
-	private String carType;
+	private String cabType;
 
 	@NotNull
 	private Double perKmRate;
+	
+	@NotNull
+	private boolean  status;
 
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "cab")
 	private Driver driver;
 
-	public Cab(Integer cabid, @NotNull String carType, @NotNull Double perKmRate, Driver driver) {
-		super();
-		this.cabid = cabid;
-		this.carType = carType;
-		this.perKmRate = perKmRate;
-		this.driver = driver;
-	}
-
-	public Cab() {
-		super();
-	}
-
-	public Cab(@NotNull String carType, @NotNull Double perKmRate, Driver driver) {
-		super();
-		this.carType = carType;
-		this.perKmRate = perKmRate;
-		this.driver = driver;
-	}
-
-	public Integer getCabid() {
-		return cabid;
-	}
-
-	public void setCabid(Integer cabid) {
-		this.cabid = cabid;
-	}
-
-	public String getCarType() {
-		return carType;
-	}
-
-	public void setCarType(String carType) {
-		this.carType = carType;
-	}
-
-	public Double getPerKmRate() {
-		return perKmRate;
-	}
-
-	public void setPerKmRate(Double perKmRate) {
-		this.perKmRate = perKmRate;
-	}
-
-	public Driver getDriver() {
-		return driver;
-	}
-
-	public void setDriver(Driver driver) {
-		this.driver = driver;
-	}
-
-	@Override
-	public String toString() {
-		return "Cab [cabid=" + cabid + ", carType=" + carType + ", perKmRate=" + perKmRate + ", driver=" + driver + "]";
-	}
+	
 
 }

@@ -20,7 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Customer {
+public class Customer extends User{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
