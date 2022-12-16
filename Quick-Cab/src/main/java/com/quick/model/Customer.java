@@ -25,7 +25,7 @@ public class Customer extends User{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer customerId;
-	
+	@ElementCollection(fetch =FetchType.EAGER)
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
 	List<TripBooking> tripList = new ArrayList<>();
 	
