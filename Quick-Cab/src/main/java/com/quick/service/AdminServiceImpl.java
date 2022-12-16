@@ -104,7 +104,7 @@ public class AdminServiceImpl implements AdminService{
 		
 		Optional<Driver> opt = driverDao.findById(driverId);
 		
-		if(opt.get().getTripList().size() == 0) {
+		if(opt.isPresent()) {
 			
 			return opt.get().getTripList();
 		}
@@ -121,7 +121,7 @@ public class AdminServiceImpl implements AdminService{
 		
 		Optional<Customer> opt = customerDao.findById(cxId);
 		
-		if(opt.get().getTripList().size() == 0) {
+		if(opt.isPresent()) {
 			
 			return opt.get().getTripList();
 		}
@@ -136,7 +136,7 @@ public class AdminServiceImpl implements AdminService{
 		
 		List<TripBooking> dateWiseList = tripBookingDao.getAllTrips();
 		
-		if(!dateWiseList.isEmpty()) {
+		if(dateWiseList.size()!=0) {
 			
 			return dateWiseList;
 			
@@ -153,7 +153,7 @@ public class AdminServiceImpl implements AdminService{
 		
 		List<TripBooking> listFromTo = tripBookingDao.getAllTripBetweenDate(customerId,fromDate,toDate);
 		
-		if(!listFromTo.isEmpty()) {
+		if(listFromTo.size()!=0) {
 			
 			return listFromTo;
 			

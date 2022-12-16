@@ -21,6 +21,7 @@ import com.quick.model.TripBooking;
 import com.quick.service.AdminService;
 import com.quick.service.CabService;
 import com.quick.service.DriverService;
+import com.quick.service.TripBookingService;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 

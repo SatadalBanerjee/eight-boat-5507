@@ -32,7 +32,7 @@ public class CustomerServiceImpl implements CustomerService{
 		
 		if(opt.isPresent()) {
 	
-			customer.setTripList(opt.get().getTripList());
+			//customer.setTripList(opt.getTripList());
 			
 			Customer updateCustomer = cdao.save(customer);
 			return updateCustomer;
