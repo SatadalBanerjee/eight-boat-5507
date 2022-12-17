@@ -22,31 +22,39 @@ public class DriverServiceImpl implements DriverService {
 	@Autowired
 	private CabDao cDao;
 
+	
 	@Override
 	public Driver insertDriver(Driver driver) throws DriverException {
 
 		List<Cab> cabList = cDao.findAll();
-		
-//		if(cabList.size()==0) {
-//			throw new DriverException("No cab found..");
-//		}
-//	
-//		for(Cab c:cabList) {
-//			if(c.isStatus()==false) {
-//				c.setStatus(true);
-//				driver.setCab(c);
-//				c.setDriver(driver);
-//				break;
-//			}
-//		
-//	}
-//		if(driver.getCab()==null) throw new DriverException("No Cab Left For Driver..!");
-//		Driver d = dDao.save(driver);
-//		if(d==null) throw new DriverException("Please Fill Proper Details..!");
-//		
-		return null;
-		
+
+		if (cabList.size() == 0) {
+			throw new DriverException("No cab found..");
+		}
+
+		for (Cab c : cabList) {
+
+			if (c.isStatus() == false){
+
+				c.setStatus(true);
+				driver.setCab(c);
+				c.setDriver(driver);
+				break;
+			}
+
+		}
+
+		if (driver.getCab() == null)
+			throw new DriverException("No Cab Left For Driver..!");
+		Driver d = dDao.save(driver);
+		if (d == null)
+			throw new DriverException("Please Fill Proper Details..!");
+
+		return d;
+
 	}
+	
+	
 
 	@Override
 	public Driver updateDriver(Driver driver) throws DriverException {
@@ -56,7 +64,7 @@ public class DriverServiceImpl implements DriverService {
 		if (opt.isPresent()) {
 
 			Driver upDriver = dDao.save(driver);
-			
+
 			upDriver.setCab(opt.get().getCab());
 
 			return upDriver;
@@ -77,8 +85,8 @@ public class DriverServiceImpl implements DriverService {
 
 			Driver d = opt.get();
 
-//			d.getCab().setStatus(false);
-			
+			d.getCab().setStatus(false);
+
 			dDao.delete(opt.get());
 
 			return d;
@@ -87,9 +95,8 @@ public class DriverServiceImpl implements DriverService {
 			throw new DriverException("Driver not found with this Driver id" + driverId);
 		}
 	}
-	
-	
 
+	
 	@Override
 	public List<Driver> viewBestDrivers() throws DriverException {
 
@@ -103,6 +110,7 @@ public class DriverServiceImpl implements DriverService {
 
 	}
 
+	
 	@Override
 	public Driver viewDrivers(Integer driverId) throws DriverException {
 

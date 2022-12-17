@@ -2,6 +2,7 @@ package com.quick.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,34 +41,32 @@ public class DriverController {
 		return new ResponseEntity<Driver>(updateD, HttpStatus.OK);
 
 	}
-	
+
 	@DeleteMapping("/driverDelete/{id}")
 	public ResponseEntity<Driver> deleteDriverHandler(@PathVariable("id") Integer driverId) throws DriverException {
-		
+
 		Driver deleteD = dService.deleteDriver(driverId);
-		
+
 		return new ResponseEntity<Driver>(deleteD, HttpStatus.OK);
-		
+
 	}
-	
+
 	@GetMapping("/driverBest")
-	public ResponseEntity<List<Driver>> viewBestDriversHandler() throws DriverException{
-		
+	public ResponseEntity<List<Driver>> viewBestDriversHandler() throws DriverException {
+
 		List<Driver> bestD = dService.viewBestDrivers();
-		
+
 		return new ResponseEntity<List<Driver>>(bestD, HttpStatus.OK);
-		
+
 	}
-	
-	
+
 	@GetMapping("/driverView{id}")
 	public ResponseEntity<Driver> viewDriversHandler(@PathVariable("id") Integer driverId) throws DriverException {
-		
+
 		Driver viewD = dService.viewDrivers(driverId);
-		
+
 		return new ResponseEntity<Driver>(viewD, HttpStatus.OK);
-		
+
 	}
-	
 
 }
