@@ -20,13 +20,13 @@ public class SignupCustomerController {
 	@PostMapping("/customer/signup")
 	public Customer signupCxHandler(@RequestBody Customer customer) {
 		 
-		return signupCxService.SignupCustomer(customer);
+		return signupCxService.signupCustomer(customer);
 		
 	}
 	
 	@PostMapping("/user/update")
 	public Customer UpdateCxHandler(@RequestBody Customer customer,@RequestParam String key) throws CustomerException {
 		
-		return signupCxService.UpdateCustomer(customer, key);
+		return signupCxService.updateCustomer(customer, key);
 	}
 }

@@ -34,7 +34,7 @@ public class LoginCustomerServiceImpl implements LoginCustomerService{
 	public String Customerlogin(LoginCustomer la) throws CustomerException {
 		
 		
-		Customer customer= customerDao.findById(la.getUserId()).orElseThrow(()->new AdminException("User Id not find"));
+		Customer customer= customerDao.findById(la.getUserId()).orElseThrow(()->new CustomerException("User Id not find"));
 		
 		if(!customer.getUsername().equals(la.getName())) {
 

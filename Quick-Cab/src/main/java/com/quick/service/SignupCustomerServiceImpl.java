@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.quick.exceptions.*;
 import com.quick.model.*;
 import com.quick.repositories.AdminDao;
+import com.quick.repositories.CustomerDao;
 import com.quick.repositories.UserSessionDao;
 
 	@Service
@@ -41,7 +42,7 @@ import com.quick.repositories.UserSessionDao;
 		
 		else {
 			
-			throw new AdminException("Customer is not logged in");
+			throw new CustomerException("Customer is not logged in");
 		}
 	}
 
