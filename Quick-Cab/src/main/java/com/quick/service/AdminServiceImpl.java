@@ -102,31 +102,31 @@ public class AdminServiceImpl implements AdminService{
 	
 	
 	@Override
-	public List<TripBooking> getTripsByDriverId(Integer driverId) throws AdminException {
+	public List<TripBooking> getTripsByDriverId(Integer driverId) throws AdminException, TripBookingException {
 		// TODO Auto-generated method stub
 		
-		Optional<Driver> opt = driverDao.findById(driverId);
+		List<TripBooking> list = tripBookingDao.getTripsByDriverId(driverId);
 		
-		if(opt.isPresent()) {
+if(list.size()!=0) {
 			
-			return opt.get().getTripList();
+			return list;
 		}
 		else {
-			throw new AdminException("Please check the entered driver Id");
+			throw new AdminException("Please check the entered Driver Id");
 		}
 
 	}
 
 	
 	@Override
-	public List<TripBooking> getTripsByCustomerID(Integer cxId) throws AdminException {
+	public List<TripBooking> getTripsByCustomerID(Integer cxId) throws AdminException, TripBookingException {
 		// TODO Auto-generated method stub
 		
-		Optional<Customer> opt = customerDao.findById(cxId);
+		List<TripBooking> list = tripBookingDao.getTripsByCustomerID(cxId);
 		
-		if(opt.isPresent()) {
+		if(list.size()!=0) {
 			
-			return opt.get().getTripList();
+			return list;
 		}
 		else {
 			throw new AdminException("Please check the entered customer Id");
@@ -135,9 +135,9 @@ public class AdminServiceImpl implements AdminService{
 
 
 	@Override
-	public List<TripBooking> getTripsDateWise() throws AdminException {
+	public List<TripBooking> getTripsDateWise() throws AdminException,TripBookingException {
 		
-		List<TripBooking> dateWiseList = tripBookingDao.getAllTrips();
+		List<TripBooking> dateWiseList = tripBookingDao.getTripsDateWise();
 		
 		if(dateWiseList.size()!=0) {
 			
@@ -151,10 +151,10 @@ public class AdminServiceImpl implements AdminService{
 
 
 	@Override
-	public List<TripBooking> getAllTripsForDays(Integer customerId, LocalDateTime fromDate, LocalDateTime toDate) throws AdminException {
+	public List<TripBooking> getAllTripsForDays(Integer customerId, LocalDateTime fromDate, LocalDateTime toDate) throws AdminException,TripBookingException {
 	
 		
-		List<TripBooking> listFromTo = tripBookingDao.getAllTripBetweenDate(customerId,fromDate,toDate);
+		List<TripBooking> listFromTo = tripBookingDao.getAllTripsForDays(customerId, fromDate, toDate);
 		
 		if(listFromTo.size()!=0) {
 			
