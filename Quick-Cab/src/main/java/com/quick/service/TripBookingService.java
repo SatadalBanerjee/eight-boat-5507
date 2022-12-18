@@ -7,7 +7,7 @@ import com.quick.model.TripBooking;
 
 public interface TripBookingService {
 	
-	public TripBooking insertTrip(TripBooking trip) ;
+	public TripBooking insertTrip(TripBooking trip) throws TripBookingException ;
 	
 	public TripBooking updateTripBooking(TripBooking tripBooking) throws TripBookingException;
 	

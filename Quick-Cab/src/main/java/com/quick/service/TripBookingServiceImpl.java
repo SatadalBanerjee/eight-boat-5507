@@ -16,9 +16,19 @@ public class TripBookingServiceImpl implements TripBookingService{
 	TripBookingDao tripDao;
 
 	@Override
-	public TripBooking insertTrip(TripBooking trip) {
+	public TripBooking insertTrip(TripBooking trip) throws TripBookingException {
 		// TODO Auto-generated method stub
-		return tripDao.save(trip);
+		
+		if(trip!=null)
+		{
+			TripBooking tri=tripDao.save(trip);
+			return  tri;
+		}
+		else
+		{
+			throw new TripBookingException("Please enter valid TripBooking details");
+		}
+		
 	}
 
 	@Override

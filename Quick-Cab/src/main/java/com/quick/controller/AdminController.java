@@ -80,7 +80,10 @@ public class AdminController {
 	
 	
 	@GetMapping("/driverTrips/{driverId}")
-	public ResponseEntity<List<TripBooking>> getAllTripByDriverIDHandler(@PathVariable ("driverId") Integer id) throws TripBookingException, AdminException{
+
+	public ResponseEntity<List<TripBooking>> getAllTripByDriverIDHandler(@PathVariable ("driverId") Integer id) throws AdminException, TripBookingException{
+
+
 		
 		List<TripBooking> list = adminService.getTripsByDriverId(id);
 		
@@ -99,7 +102,7 @@ public class AdminController {
 	@GetMapping("/driverTrip/{customerId}")
 	public ResponseEntity<List<TripBooking>> getTripsDateWiseHandler(@PathVariable ("customerId") Integer id) throws AdminException, TripBookingException{
 		
-		List<TripBooking> list = adminService.getTripsDateWise();
+		List<TripBooking> list = adminService.getTripsDateWise(id);
 		
 		return new ResponseEntity<List<TripBooking>>(list,HttpStatus.OK);
 	}

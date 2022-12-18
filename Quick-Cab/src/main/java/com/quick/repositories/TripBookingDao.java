@@ -14,8 +14,8 @@ import com.quick.model.TripBooking;
 
 public interface TripBookingDao extends JpaRepository<TripBooking, Integer> {
 
-	@Query("select t from TripBooking t")
-     public List<TripBooking> getTripsDateWise() throws TripBookingException;
+	@Query("select t from TripBooking t where t.customer.customerId=?1")
+     public List<TripBooking> getTripsDateWise(Integer cxId) throws TripBookingException;
 	
 	@Query("select t from TripBooking t where t.customer.customerId=?1")
 	public List<TripBooking> getTripsByCustomerID(Integer cxId) throws TripBookingException; 
