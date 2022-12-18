@@ -16,8 +16,6 @@ import com.quick.repositories.*;
 @Service
 public class AdminServiceImpl implements AdminService{
 
-	
-	
 	@Autowired
 	AdminDao adminDao;
 	
@@ -135,10 +133,11 @@ if(list.size()!=0) {
 
 
 	@Override
-	public List<TripBooking> getTripsDateWise() throws AdminException,TripBookingException {
+	public List<TripBooking> getTripsDateWise(Integer cxId) throws AdminException,TripBookingException {
 		
-		List<TripBooking> dateWiseList = tripBookingDao.getTripsDateWise();
-		
+		List<TripBooking> dateWiseList = tripBookingDao.getTripsDateWise(cxId);
+				
+
 		if(dateWiseList.size()!=0) {
 			
 			return dateWiseList;
@@ -165,6 +164,9 @@ if(list.size()!=0) {
 			throw new AdminException("There are no trip between these two dates");
 		}
 	}
+	
+	
+	
 
 
 }

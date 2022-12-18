@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.quick.exceptions.AdminException;
+import com.quick.exceptions.TripBookingException;
 import com.quick.model.Admin;
 import com.quick.model.TripBooking;
 import com.quick.service.AdminService;
@@ -78,7 +79,7 @@ public class AdminController {
 	
 	
 	@GetMapping("/driverTrips/{driverId}")
-	public ResponseEntity<List<TripBooking>> getAllTripByDriverIDHandler(@PathVariable ("driverId") Integer id) throws AdminException{
+	public ResponseEntity<List<TripBooking>> getAllTripByDriverIDHandler(@PathVariable ("driverId") Integer id) throws AdminException, TripBookingException{
 		
 		List<TripBooking> list = adminService.getTripsByDriverId(id);
 		
@@ -87,17 +88,17 @@ public class AdminController {
 	
 	
 	@GetMapping("/driverTrips/{customerId}")
-	public ResponseEntity<List<TripBooking>> getTripsByCustomerIDHandler(@PathVariable ("customerId") Integer id) throws AdminException{
+	public ResponseEntity<List<TripBooking>> getTripsByCustomerIDHandler(@PathVariable ("customerId") Integer id) throws AdminException, TripBookingException{
 		
 		List<TripBooking> list = adminService.getTripsByCustomerID(id);
 		
 		return new ResponseEntity<List<TripBooking>>(list,HttpStatus.OK);
 	}
 	
-	@GetMapping("/driverTrips/{customerId}")
-	public ResponseEntity<List<TripBooking>> getTripsDateWiseHandler(@PathVariable ("customerId") Integer id) throws AdminException{
+	@GetMapping("/driverTrip/{customerId}")
+	public ResponseEntity<List<TripBooking>> getTripsDateWiseHandler(@PathVariable ("customerId") Integer id) throws AdminException, TripBookingException{
 		
-		List<TripBooking> list = adminService.getTripsDateWise();
+		List<TripBooking> list = adminService.getTripsDateWise(id);
 		
 		return new ResponseEntity<List<TripBooking>>(list,HttpStatus.OK);
 	}

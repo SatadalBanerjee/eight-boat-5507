@@ -26,9 +26,9 @@ public interface AdminService {
 	
 	public List<TripBooking> getTripsByCustomerID(Integer cxId) throws AdminException,TripBookingException;
 
-	public List<TripBooking> getTripsDateWise() throws AdminException,TripBookingException,TripBookingException;
+	public List<TripBooking> getTripsDateWise(Integer cxId) throws AdminException,TripBookingException,TripBookingException;
 	
-	public List<TripBooking> getAllTripsForDays(Integer customerId, LocalDateTime fromDate, LocalDateTime toDate)throws AdminException,TripBookingException;
+	public List<TripBooking> getAllTripsForDays(Integer customerId,LocalDateTime fromDate,LocalDateTime toDate)throws AdminException,TripBookingException;
 	
 	
 	
@@ -48,4 +48,4 @@ public interface AdminService {
 
 
 
-}
+

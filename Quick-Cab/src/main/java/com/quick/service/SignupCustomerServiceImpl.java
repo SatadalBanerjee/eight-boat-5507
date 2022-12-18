@@ -32,7 +32,7 @@ import com.quick.repositories.UserSessionDao;
 	@Override
 	public Customer updateCustomer(Customer customer, String key) throws CustomerException {
 		
-		Optional<UserSession> opt=	userSessionDao.findByuid(key);
+		Optional<UserSession> opt=	userSessionDao.findByuUid(key);
 		
 		if(opt.isPresent()) {
 			

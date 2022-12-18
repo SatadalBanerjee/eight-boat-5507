@@ -16,14 +16,16 @@ import com.quick.exceptions.TripBookingException;
 import com.quick.model.TripBooking;
 import com.quick.service.TripBookingService;
 
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 
 @RestController
 public class TripBookingController {
 	
 	TripBookingService tripserv;
 	
-	@PostMapping("/posttrip")
-    public ResponseEntity<TripBooking> insertTrip(@RequestParam TripBooking trip) {
+	@PostMapping("/trip")
+    public ResponseEntity<TripBooking> insertTrip(@RequestBody TripBooking trip) throws TripBookingException {
     	
     	return new ResponseEntity<TripBooking>(tripserv.insertTrip(trip),HttpStatus.CREATED);
     	

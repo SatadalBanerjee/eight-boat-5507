@@ -14,10 +14,16 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class TripBooking {
 	
 	@Id
@@ -44,42 +50,7 @@ public class TripBooking {
 	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	private Driver driver;
 	
-	public  TripBooking()
-	{
-		
-	}
-
-	public TripBooking( String fromLocation, String toLocation, LocalDate fromDate,
-			LocalDate toDate, boolean status, Double distanceInKm, Double bill, Customer customer, Driver driver) {
-		super();
-		
-		this.fromLocation = fromLocation;
-		this.toLocation = toLocation;
-		this.fromDate = fromDate;
-		this.toDate = toDate;
-		this.status = status;
-		this.distanceInKm = distanceInKm;
-		this.bill = bill;
-		this.customer = customer;
-		this.driver = driver;
-	}
 	
-	
-
-	public TripBooking(Integer tripbookingId, String fromLocation, String toLocation, LocalDate fromDate,
-			LocalDate toDate, boolean status, Double distanceInKm, Double bill, Customer customer, Driver driver) {
-		super();
-		this.tripbookingId = tripbookingId;
-		this.fromLocation = fromLocation;
-		this.toLocation = toLocation;
-		this.fromDate = fromDate;
-		this.toDate = toDate;
-		this.status = status;
-		this.distanceInKm = distanceInKm;
-		this.bill = bill;
-		this.customer = customer;
-		this.driver = driver;
-	}
 
 	
 	

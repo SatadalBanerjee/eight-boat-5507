@@ -14,19 +14,19 @@ import com.quick.model.TripBooking;
 
 public interface TripBookingDao extends JpaRepository<TripBooking, Integer> {
 
-	@Query("select t from TripBooking t")
-     public List<TripBooking> getTripsDateWise() throws TripBookingException;
+	@Query("select t from TripBooking t where t.customer.customerId=?1")
+     public List<TripBooking> getTripsDateWise(Integer cxId) throws TripBookingException;
 	
-	@Query("select t from TripBooking t where t.customerId=?1")
+	@Query("select t from TripBooking t where t.customer.customerId=?1")
 	public List<TripBooking> getTripsByCustomerID(Integer cxId) throws TripBookingException; 
 	
-	@Query("select t from TripBooking t where t.driverId=?1")
+	@Query("select t from TripBooking t where t.driver.driverId=?1")
 	 public List<TripBooking> getTripsByDriverId(Integer driverId) throws TripBookingException;
 	
-	@Query("select t from TripBooking t where t.customerId=?1 AND t.fromDate=?2")
+	@Query("select t from TripBooking t where t.customer.customerId=?1 AND t.fromDate=?2")
 	public List<TripBooking> getAllTripsForDays(Integer customerId, LocalDateTime fromDate, LocalDateTime toDate)throws TripBookingException;
 	
-	@Query("select t.bill from TripBooking t where t.customerId=?1")
+	@Query("select t.bill from TripBooking t where t.customer.customerId=?1")
 	public TripBooking calculateBill(Integer customerId) throws TripBookingException;
 	
 	
