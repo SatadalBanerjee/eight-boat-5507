@@ -24,7 +24,7 @@ public class TripBookingServiceImpl implements TripBookingService{
 	@Override
 	public TripBooking updateTripBooking(TripBooking tripBooking) throws TripBookingException{
 		// TODO Auto-generated method stub
-		Optional<TripBooking> opt=tripDao.findById(tripBooking.getTripBookingId);
+		Optional<TripBooking> opt=tripDao.findById(tripBooking.getTripbookingId());
 		if(opt.isPresent())
 		{
 			tripDao.save(tripBooking);
