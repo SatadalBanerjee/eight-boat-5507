@@ -33,7 +33,7 @@ public class SignupAdminServiceImpl implements SignupAdminService{
 	@Override
 	public Admin updateAdmin(Admin admin, String key) throws AdminException {
 		
-		Optional<UserSession> us=	userSessionDao.findByuid(key);
+		Optional<UserSession> us=	userSessionDao.findByuUid(key);
 		
 		if(us.isPresent()) {
 			

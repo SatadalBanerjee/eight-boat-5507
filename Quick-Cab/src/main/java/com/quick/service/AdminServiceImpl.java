@@ -107,7 +107,7 @@ public class AdminServiceImpl implements AdminService{
 		
 		List<TripBooking> list = tripBookingDao.getTripsByDriverId(driverId);
 		
-if(list.size()!=0) {
+		if(list.size()!=0) {
 			
 			return list;
 		}

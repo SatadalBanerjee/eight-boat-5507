@@ -22,6 +22,7 @@ import com.quick.model.TripBooking;
 import com.quick.service.AdminService;
 import com.quick.service.CabService;
 import com.quick.service.DriverService;
+//import com.quick.service.DriverService;
 import com.quick.service.TripBookingService;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -95,7 +96,7 @@ public class AdminController {
 		return new ResponseEntity<List<TripBooking>>(list,HttpStatus.OK);
 	}
 	
-	@GetMapping("/driverTrips/{customerId}")
+	@GetMapping("/driverTrip/{customerId}")
 	public ResponseEntity<List<TripBooking>> getTripsDateWiseHandler(@PathVariable ("customerId") Integer id) throws AdminException, TripBookingException{
 		
 		List<TripBooking> list = adminService.getTripsDateWise();

@@ -73,7 +73,7 @@ public class LoginCustomerServiceImpl implements LoginCustomerService{
 	@Override
 	public String Customerlogout(String key) throws CustomerException {
 		
-		UserSession cus=	userSessionDao.findByuid(key).orElseThrow(()-> new CustomerException("Enter correct Key"));
+		UserSession cus=	userSessionDao.findByuUid(key).orElseThrow(()-> new CustomerException("Enter correct Key"));
 
 		customerLoginDao.deleteById(cus.getUserId());
 		userSessionDao.delete(cus);	

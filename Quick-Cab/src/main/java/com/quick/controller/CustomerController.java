@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.quick.exceptions.CustomerException;
 import com.quick.model.Customer;
-import com.quick.service.CustomerService;
+import com.quick.service.*;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 

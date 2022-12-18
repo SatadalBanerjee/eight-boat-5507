@@ -68,7 +68,7 @@ public class LoginAdminServiceImpl implements LoginAdminService{
 
 	@Override
 	public String Adminlogout(String key) throws AdminException {
-		UserSession cus=	userSessionDao.findByuid(key).orElseThrow(()-> new AdminException("Enter correct Key"));
+		UserSession cus=	userSessionDao.findByuUid(key).orElseThrow(()-> new AdminException("Enter correct Key"));
 
 		adminLoginDao.deleteById(cus.getUserId());
 		userSessionDao.delete(cus);	

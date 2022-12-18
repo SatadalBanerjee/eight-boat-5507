@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.quick.exceptions.DriverException;
 import com.quick.model.Cab;
@@ -13,7 +14,7 @@ import com.quick.repositories.DriverDao;
 
 import io.swagger.v3.oas.annotations.servers.Server;
 
-@Server
+@Service 
 public class DriverServiceImpl implements DriverService {
 
 	@Autowired
