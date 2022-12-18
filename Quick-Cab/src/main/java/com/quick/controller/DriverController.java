@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 @RestController
 public class DriverController {
 
-	@Autowired
+	@Autowired	
 	private DriverService dService;
 
 	@PostMapping("/driverInsert")

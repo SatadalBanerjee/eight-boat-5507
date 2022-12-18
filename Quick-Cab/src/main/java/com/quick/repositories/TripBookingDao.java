@@ -31,5 +31,4 @@ public interface TripBookingDao extends JpaRepository<TripBooking, Integer> {
 	
 	
 	
-	
 }

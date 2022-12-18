@@ -34,18 +34,3 @@ public interface AdminService {
 	
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

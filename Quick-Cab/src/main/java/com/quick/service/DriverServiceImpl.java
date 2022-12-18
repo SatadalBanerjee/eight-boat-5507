@@ -14,7 +14,9 @@ import com.quick.repositories.DriverDao;
 
 import io.swagger.v3.oas.annotations.servers.Server;
 
-@Service
+
+@Service 
+
 public class DriverServiceImpl implements DriverService {
 
 	@Autowired
